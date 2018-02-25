@@ -1,0 +1,98 @@
+$white: #ffffff;
+$black: #000000;
+
+$blue_light : #2692d8;
+$blue_dark : #004f86;
+$blue_lighter : #88d0f5;
+$grey_light : #eaeaea;
+$grey_dark : #6b6b6b;
+$grey_text : #474747;
+$grey_hover : #f6f6f6;
+
+// $dep colors
+
+$dep_01 : #33b8b0;
+$dep_02 : #0b8d79;
+$dep_03 : #006a96;
+$dep_04 : #3996d4;
+$dep_05 : #444499;
+$dep_06 : #7882c0;
+
+#thepointer{
+    position: relative;
+    .thumbs{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-flex-wrap: wrap; 
+        -ms-flex-wrap: wrap; 
+        flex-wrap: wrap;  
+        .thumb{
+            cursor: pointer;
+            & + .thumb{
+                margin-left: 20px;
+            }
+        }
+        img{
+            height: 20px; 
+        }
+    }
+    .tabsthumbs{
+        position: relative;
+        margin-top: 20px;
+        .tabsthumbs_single{
+            padding: 20px;
+            background-color: $white; 
+            opacity: 0; 
+            display: none;
+            position: relative;
+            &.tab-active{
+                display: flex;
+                opacity: 1; 
+            }
+            & + .tabsthumbs_single{
+                margin-top: 0;
+            }
+            img{
+                height: 50px; 
+                display: block;
+                margin: auto;
+            }
+        }
+        .tabsthumbs_single{
+             &#dep1{
+                border-top: 5px solid $dep_01; 
+                // &:before {
+                //     border-bottom: 10px solid $dep_01;
+                //     // left: attr(data-attr); 
+                // }
+             } 
+             &#dep2{
+                border-top: 5px solid $dep_02; 
+             } 
+             &#dep3{
+                border-top: 5px solid $dep_03; 
+             }
+             &#dep4{
+                border-top: 5px solid $dep_04; 
+             } 
+             &#dep5{
+                border-top: 5px solid $dep_05; 
+             } 
+             &#dep6{
+                border-top: 5px solid $dep_06; 
+             } 
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            top: -10px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            @include transition(.3s);
+        }
+    }
+}

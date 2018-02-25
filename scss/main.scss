@@ -1,0 +1,311 @@
+@charset "UTF-8";
+/*
+ Theme Name:   Malu theme
+ Theme URI:    http://www.malu.be/
+ Description:  Malu theme
+ Author:       Gemini Design
+ Author URI:   www.geminidesign.nl
+ Version:      1.0.0
+ Tags:         malu
+ Text Domain:  malu-theme
+ */
+ 
+// reset global styles
+// @import "/vendor/normalize";
+
+@import "./scss_components/reset";
+
+@import "./scss_components/functions";
+
+ 
+/* ==========================================================================
+   GridSystem, objects for the structure
+   ========================================================================== */
+
+//args
+$grid-columns: 12;
+$grid-spacing-px: 0;
+$container-width: 980;
+
+//breakpoints
+// $breakpoints-list : 
+//     'only screen and (min-width: 100px)'
+//     'only screen and (min-width: 480px)'
+//     'only screen and (min-width: 768px)'
+//     'only screen and (min-width: 1024px)';
+
+// $breakpoints-name : xs s m l;
+
+.container {
+    max-width: $container-width + px;
+    margin: 0 auto;
+}
+
+//----- Extends
+%clearfix:after {
+    display:block;
+    clear:both;
+    // content:'';
+}
+
+.row {
+    @extend %clearfix;
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+//----- when one row is followed by another, add some $grid-spacing to the top of the following one. It’s the same as .row + .row in CSS
+    & + & {
+        margin-top:$grid-spacing-px + px;
+    }
+}
+ 
+// [class^="col-"] {
+//     float:left;
+//     margin-right:$grid-spacing-px + px;
+//     -webkit-box-sizing:border-box; 
+//     -moz-box-sizing:border-box; 
+//     box-sizing:border-box;
+//     min-height: 1px; 
+//     &:last-child {
+//         margin-right:0px;
+//     }
+// }
+
+// @mixin generate-columns($sizeName, $breakPointSize){
+//     @media #{$breakPointSize}{
+//         @for $i from 1 through $grid-columns {
+//             .col-#{$sizeName}-#{$i} {
+//                 width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / $i - 1}px) / (#{$grid-columns} / #{$i}));
+//             }
+//         }
+//     }   
+// }
+
+// @for $j from 1 through length($breakpoints-name) {
+//     @include generate-columns(nth($breakpoints-name, $j), nth($breakpoints-list, $j));
+// }
+
+div[class^='col-'], div[class*=' col-']{
+    -webkit-box-sizing:border-box; 
+    -moz-box-sizing:border-box; 
+    box-sizing:border-box;
+}
+
+// .col-m-1 {
+//   width: calc((100% - 10*11px) / (12 / 1)); }
+
+// .col-m-2 {
+//   width: calc((100% - 10*5px) / (12 / 2)); }
+
+// .col-m-3 {
+//   width: calc((100% - 10*3px) / (12 / 3)); }
+
+// .col-m-4 {
+//   width: calc((100% - 10*2px) / (12 / 4)); }
+
+// .col-m-5 {
+//   width: calc((100% - 10*1.4px) / (12 / 5)); }
+
+// .col-m-6 {
+//   width: calc((100% - 10*1px) / (12 / 6)); }
+
+// .col-m-7 {
+//   width: calc((100% - 10*0.7142857143px) / (12 / 7)); }
+
+// .col-m-8 {
+//   width: calc((100% - 10*0.5px) / (12 / 8)); }
+
+// .col-m-9 {
+//   width: calc((100% - 10*0.3333333333px) / (12 / 9)); }
+
+// .col-m-10 {
+//   width: calc((100% - 10*0.2px) / (12 / 10)); }
+
+// .col-m-11 {
+//   width: calc((100% - 10*0.0909090909px) / (12 / 11)); }
+
+// .col-m-12 {
+//   width: calc((100% - 10*0px) / (12 / 12)); } 
+
+.col-m-1, .col-offset-1{
+    // width: 8.33%;
+    width: calc((100% - 10*11px) / (12 / 1));
+}
+
+.col-m-2, .col-offset-2{
+    // width: 16.66%;
+    // width: calc((100% - 30px) / 4); 
+    width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / 2 - 1}px) / (#{$grid-columns} / #{2}));
+}
+
+.col-m-3, .col-offset-3{
+    // width: 25%;
+    // width: calc((100% - 30px) / 4); 
+    width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / 3 - 1}px) / (#{$grid-columns} / #{3}));
+}
+
+.col-m-4, .col-offset-4{
+    // width: 33.33%;
+    // width: calc((100% - 20px) / 3); 
+    width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / 4 - 1}px) / (#{$grid-columns} / #{4}));
+}
+
+.col-m-5, .col-offset-4{
+    // width: 41.66%;
+    width: calc((100% - 10*1.4px) / (12 / 5));
+    width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / 5 - 1}px) / (#{$grid-columns} / #{5}));
+}
+
+.col-m-6, .col-offset-6{
+    // width: 50%;
+    // width: calc((100% - 10px) / 2); 
+    width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / 6 - 1}px) / (#{$grid-columns} / #{6}));
+}
+
+.col-m-7, .col-offset-7{
+    // width: 58.33%;
+    width: calc((100% - 10*0.7142857143px) / (12 / 7));
+    width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / 7 - 1}px) / (#{$grid-columns} / #{7}));
+}
+
+.col-m-8, .col-offset-8{
+    // width: 66.66%;
+    // width: calc((100% - 10px) / 3*2); 
+    width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / 8 - 1}px) / (#{$grid-columns} / #{8}));
+}
+
+.col-m-9, .col-offset-9{
+    // width: 75%;
+    width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / 9 - 1}px) / (#{$grid-columns} / #{9}));
+}
+
+.col-m-10, .col-offset-10{
+    // width: 83.33%;
+    width: calc((100% - 10*0.2px) / (12 / 10)); 
+}
+
+.col-m-11, .col-offset-11{
+    // width: 91.66%;
+    width: calc((100% - 10*0.0909090909px) / (12 / 11));
+}
+
+.col-m-12, .col-offset-12{
+    // width: 100%; 
+    width: calc((100% - #{$grid-spacing-px}*#{$grid-columns / 12 - 1}px) / (#{$grid-columns} / #{12}));
+}
+
+section {
+    & + & {
+        margin-top:$grid-spacing-px + px;
+    }
+}
+
+/* ==========================================================================
+   Settings: colors variables
+   ========================================================================== */
+   
+$white: #ffffff;
+$grey: #ececec;
+$black: #000000;
+// $facebook: #3b5998;
+// $instagram: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+// $linkedin: #007BB6;
+// $twitter: #00ACED;
+// $pinterest: #CB2026;
+$blue: #004d77;
+$red: #db0106;
+$red_alt: #53091a;
+
+$blue_cerruti: #193b4c;
+$grey_cerruti: #dfd7cf;
+$grey_menu: #777d81;
+
+// @import "./scss_components/popup";
+@import "./scss_components/scrolltotop";
+// @import "./scss_components/tabstoaccordion";
+// @import "./scss_components/accordion";
+// @import "./scss_components/accordion_vertical";
+// @import "./scss_components/thepointer";
+// @import "./scss_components/slider";
+// @import "./scss_components/lazyload";
+// @import "./scss_components/form";
+// @import "./scss_components/table";
+
+/* ==========================================================================
+   Base: default style
+   ========================================================================== */
+   
+body{
+    background-color: $white; 
+    font-weight: 300; 
+    opacity: 1;
+    transition: 1s opacity;
+    &.fade-out {
+        opacity: 0;
+        transition: none;
+    }
+    &.malu{
+        font-family: 'Oswald', sans-serif;
+        font-size: 14px; 
+        @import "./scss_malu/malu";
+        // line-height: 23px;
+        
+    }
+    &.cerruti{
+
+        @font-face {
+            font-family: 'NewsGoth Cn BT';
+            src: url('NewsGothicBT-RomanCondensed.eot');
+            src: url('NewsGothicBT-RomanCondensed.eot?#iefix') format('embedded-opentype'),
+                url('NewsGothicBT-RomanCondensed.woff2') format('woff2'),
+                url('NewsGothicBT-RomanCondensed.woff') format('woff'),
+                url('NewsGothicBT-RomanCondensed.ttf') format('truetype'),
+                url('NewsGothicBT-RomanCondensed.svg#NewsGothicBT-RomanCondensed') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        font-family: 'NewsGoth Cn BT', sans-serif;
+        font-size: 17px; 
+        @import "./scss_cerruti/cerruti";
+    }
+}
+
+/* ==========================================================================
+    Components: classes
+    ========================================================================== */
+
+.shadow{
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   Overlay
+   ========================================================================== */
+
+.bodyoverlay {
+    background: rgba(0,0,0,0.5);
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    z-index: 11;
+    &.cover-bg{
+        display: block;
+    }
+}
+
+/* ==========================================================================
+   Media Queries @media only screen and (max-width: (x)px) {}
+   ========================================================================== */
+
+@media only screen and (max-width: 1000px) {
+
+    .container{
+        margin: auto 20px;
+    }
+  
+}
+

@@ -1,0 +1,153 @@
+.title {
+  cursor: pointer;
+  position: relative;
+  float: left;
+  width: 10%;
+  box-sizing: border-box;
+  background: #444;
+  color: #ccc;
+  height: 300px;
+  padding: 15px;
+  border-left: 1px solid black;
+  background-position: 50% 50px !important;
+  background-size: cover !important; }
+
+.number {
+  background: black;
+  height: 80px;
+  width: 100%;
+  text-align: center;
+  line-height: 80px;
+  z-index: 999;
+  color: #fff;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px; }
+
+.cont {
+  position: relative;
+  float: left;
+  width: 100%;
+  background: #f6f6f6;
+  color: #000;
+  height: 300px;
+  box-sizing: border-box;
+  padding: 30px; }
+
+.cont h1 {
+  font-size: 18px;
+  font-weight: 400;
+  transition: all 3s;
+  font-family: 'Droid Serif', serif; }
+
+.cont p {
+  font-size: 14px;
+  transition: all 3s;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif; }
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  opacity: 1;
+  pointer-events: none;
+  left: 0px;
+  background: #f6f6f6; }
+
+.arrow {
+  width: 19px;
+  height: 38px;
+  position: absolute;
+  left: 0px;
+  display: none;
+  background: url("../images/arrow.png");
+  bottom: 30px; }
+
+#acc {
+  width: 100%; }
+
+.slide {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  width: 0px; }
+
+.title.active {
+  pointer-events: none; }
+
+.slide.active {
+  display: block; }
+
+.slide h1 {
+  display: none; }
+
+.slide p {
+  display: none; }
+
+.black-overlay {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  top: 0px;
+  left: 0px;
+  opacity: 0.5;
+  position: absolute; }
+
+@media (max-width: 1200px) {
+  .cont {
+    height: 325px; }
+
+  .title {
+    height: 325px; } }
+@media (max-width: 1000px) {
+  .cont {
+    height: 400px; }
+
+  .title {
+    height: 400px; } }
+@media (max-width: 903px) {
+  .slide h1 {
+    display: block !important; }
+
+  .slide p {
+    display: block !important; } }
+@media (max-width: 780px) {
+  .cont {
+    height: 250px !important; }
+
+  .title {
+    height: 250px !important; }
+
+  .longer {
+    height: 300px !important; } }
+@media (max-width: 580px) {
+  .cont {
+    height: 300px !important; }
+
+  .title {
+    height: 300px !important; }
+
+  .longer {
+    height: 400px !important; } }
+@media (max-width: 580px) {
+  .cont {
+    height: 350px !important; }
+
+  .title {
+    height: 350px !important; }
+
+  .longer {
+    height: 450px !important; } }
+@media (max-width: 420px) {
+  .cont {
+    height: 400px !important; }
+
+  .title {
+    height: 400px !important; }
+
+  .longer {
+    height: 500px !important; } }
